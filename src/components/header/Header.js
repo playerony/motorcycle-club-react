@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import background from '../../static/img/bg.jpg';
+import logo from '../../static/img/logo.png';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Background = styled.div`
@@ -21,7 +22,7 @@ const Background = styled.div`
         background-color: rgba(195, 153, 252, .4);
         display: flex;
         & > .text {
-            margin: 150px auto;
+            margin: 20% auto;
             color: #FFFFFF;
             text-shadow: 0px 3px 6px rgba(0, 0, 0, .4);
             & > h1 {
@@ -31,14 +32,6 @@ const Background = styled.div`
                     font-size: 60px;
                 }
             }
-            & > p {
-                font-size: 30px;
-                margin-top: -10px;
-                text-align: center;
-                @media screen and (max-width: 550px) {
-                    font-size: 16px;
-                }
-            }
             & > .see-more-button { 
                 width: 300px;
                 height: 50px;
@@ -46,7 +39,7 @@ const Background = styled.div`
                 text-align: center;
                 display: block;
                 margin: auto;
-                margin-top: 300px;
+                margin-top: 20%;
                 background-color: rgba(146, 93, 217, .85);
                 color: #FFFFFF;
                 text-decoration: underline;
@@ -60,8 +53,32 @@ const Background = styled.div`
                     background-color: rgba(146, 93, 217, 1);
                 }
                 @media screen and (max-width: 550px) {
-                    margin-top: 200px;
+                    margin-top: 10%;
                 }
+            }
+            & > .logo {
+                margin-top: 20%;
+                display: flex;
+                margin: 0 auto;
+                width: 50%;
+                background: url(${logo});
+                width: 300px;
+                height: 300px;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+                @media screen and (max-width: 800px) {
+                    margin: 10% auto;
+                }
+            }
+            @media screen and (min-width: 1000px, min-height: 1000px) {
+                margin: 40% auto;
+            }
+            @media screen and (min-width: 1000px, max-height: 1000px) {
+                margin: -10% auto;
+            }
+            @media screen and (min-width: 1000px) {
+                margin: 10% auto;
             }
         }
     }
@@ -73,10 +90,7 @@ class Header extends Component {
             <Background>
                 <div className="mask">
                     <div className="text">
-                        <h1>Wojskowy klub motocyklowy</h1>
-                        <p>
-                            Bo pasja ma łączyć, a nie dzielić
-                        </p>
+                        <div className="logo"></div>
                         <AnchorLink className="see-more-button" href="#description" offset="10">
                             Dowiedz się więcej
                         </AnchorLink>
