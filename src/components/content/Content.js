@@ -6,21 +6,25 @@ const StyledContent = styled.div`
         max-width: 900px;
         margin: auto;
         padding: 10px;
-        & > #description {
-            margin-top: 40px;
-            text-align: justify;
-            background: #FFFFFF;
-                padding: 15px;
-                box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
-        }
-        & > .content {
+        
+        & > #content {
             margin-top: 20px;
             h1 {
+                padding-top: 20px;
+                font-size: 40px;
                 text-align: center;
                 text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
-                & > span {
-                    color: #8A52D6;
+                color: #FFF;
+                @media screen and (max-width: 550px) {
+                    font-size: 20px;
                 }
+            }
+            & > .description {
+                margin: 30px;
+                text-align: justify;
+                font-size: 18px;
+                color: #FFF;
+                padding: 15px;
             }
         }
     }
@@ -42,9 +46,9 @@ class Content extends Component {
         return (
             <StyledContent>
                 <div className="container">
-                    <div className="content">
+                    <div id="content">
                         <h1>O nas</h1>
-                        <div id="description">
+                        <div className="description">
                             {this.state.clubDescription}
                         </div>
                     </div>

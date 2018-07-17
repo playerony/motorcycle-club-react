@@ -12,7 +12,7 @@ injectGlobal`
     }
     body {
         font-family: 'Raleway', sans-serif;
-        background-color: #F8F8F8;
+        background-color: #40a4c4;
         color: #454545;
     }
 `;

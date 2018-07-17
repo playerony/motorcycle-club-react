@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import background from '../../static/img/bg.jpg';
-import logo from '../../static/img/logo.png';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Background = styled.div`
     width: 100%;
@@ -15,31 +13,52 @@ const Background = styled.div`
     overflow: hidden;
     & > .mask {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100vh;
         background-color: rgba(64, 164, 196, .4);
         display: flex;
         & > .text {
-            margin: 20% auto;
+            margin: 5% auto;
             color: #FFFFFF;
             text-shadow: 0px 3px 6px rgba(0, 0, 0, .4);
             & > h1 {
-                font-size: 100px;
+                font-size: 40px;
                 text-align: center;
                 @media screen and (max-width: 550px) {
-                    font-size: 60px;
+                    font-size: 20px;
                 }
             }
-            & > .see-more-button { 
+        }
+        & > .contact-form {
+            position: absolute;
+            width: 100%;
+            margin-top: 13%;
+            text-align: center;
+            input[type=text], input[type=email], textarea {
+                margin: 10px;
+                flex-basis: 79%;
+                height: 50px;
+                width: 50%;
+                border: 0;
+                border-radius: 5px;
+                box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+                font-size: 21px;
+                line-height: 40px;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+                text-align: left;
+                padding-left: 15px;
+                letter-spacing: 1px;
+                color: #333333;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                resize: none;
+            }
+            input[type=submit] {
                 width: 300px;
                 height: 50px;
                 line-height: 50px;
                 text-align: center;
                 display: block;
-                margin: auto;
-                margin-top: 20%;
+                margin: 8px auto;
                 background-color: rgba(64, 164, 196, .85);
                 color: #FFFFFF;
                 text-decoration: underline;
@@ -56,49 +75,32 @@ const Background = styled.div`
                     margin-top: 10%;
                 }
             }
-            & > .logo {
-                margin-top: 20%;
-                display: flex;
-                margin: 0 auto;
-                width: 50%;
-                background: url(${logo});
-                width: 300px;
-                height: 300px;
-                background-size: cover;
-                background-position: center;
-                cursor: pointer;
-                @media screen and (max-width: 800px) {
-                    margin: 10% auto;
-                }
-            }
-            @media screen and (min-width: 1000px, min-height: 1000px) {
-                margin: 40% auto;
-            }
-            @media screen and (min-width: 1000px, max-height: 1000px) {
-                margin: -10% auto;
-            }
-            @media screen and (min-width: 1000px) {
-                margin: 10% auto;
+            textarea {
+                height: 150px;
             }
         }
     }
 `;
 
-class Header extends Component {
+class Content extends Component {
     render() {
         return (
             <Background>
                 <div className="mask">
                     <div className="text">
-                        <div className="logo"></div>
-                        <AnchorLink className="see-more-button" href="#content" offset="10">
-                            Dowiedz się więcej
-                        </AnchorLink>
+                        <h1>Skontaktuj się z nami</h1>
                     </div>
+                    <form className="contact-form">
+                        <input type="text" name="firstname" placeholder="Twoje imię.."/>
+                        <input type="text" name="firstname" placeholder="Twoje nazwisko.."/>
+                        <input type="email" name="email" placeholder="Twój email.."/>
+                        <textarea name="message" placeholder="Twoja wiadomość.."/>
+                        <input type="submit" value="Submit"/>
+                    </form>
                 </div>
             </Background>
         );
     }
 }
 
-export default Header;
+export default Content;
