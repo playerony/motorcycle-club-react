@@ -6,19 +6,22 @@ const StyledContent = styled.div`
         max-width: 900px;
         margin: auto;
         padding: 10px;
-        
+
         & > #content {
             margin-top: 20px;
+
             h1 {
                 padding-top: 20px;
                 font-size: 40px;
                 text-align: center;
                 text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
                 color: #FFF;
+                
                 @media screen and (max-width: 550px) {
                     font-size: 20px;
                 }
             }
+
             & > .description {
                 margin: 30px;
                 text-align: justify;

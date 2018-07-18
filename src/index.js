@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './components/pages/LandingPage';
+import App from './components/App';
 import { injectGlobal } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<LandingPage />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+document.getElementById('root'));
 
 injectGlobal`
     * {
@@ -11,7 +16,7 @@ injectGlobal`
         padding: 0;
     }
     body {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         background-color: #40a4c4;
         color: #454545;
     }
