@@ -1,0 +1,3 @@
+export const REQUEST_EMAIL = 'REQUEST_EMAIL';
+export const RESPONSE_EMAIL = 'RESPONSE_EMAIL';
+export const FAILURE_EMAIL = 'FAILURE_EMAIL';

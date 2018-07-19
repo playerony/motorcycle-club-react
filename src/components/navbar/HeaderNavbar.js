@@ -96,7 +96,7 @@ class HeaderNavbar extends Component {
     render() {
         return (
             <Navbar>
-                <ul className="nav">
+                <ul>
                     <li className="logo">
                         <Link to="/">
                             <img src={logo} alt="logo" />
@@ -109,9 +109,9 @@ class HeaderNavbar extends Component {
                             </AnchorLink>
                         </li>
                         <li className="text">
-                            <a href="#" className="text-underline">
+                            <AnchorLink href="#contact" className="text-underline">
                                 Kontakt
-                            </a>
+                            </AnchorLink>
                         </li>
                     </div>
                 </ul>

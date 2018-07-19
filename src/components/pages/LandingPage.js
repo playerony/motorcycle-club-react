@@ -2,17 +2,39 @@ import React, { Component } from 'react';
 import Header from '../header/Header';
 import Content from '../content/Content';
 import Contact from '../content/Contact';
+import { connect } from 'react-redux';
+import { sendEmail } from '../../actions/email/sendEmail';
 
 class LandingPage extends Component {
+    constructor() {
+        super();
+
+        this.handleSendEmail = this.handleSendEmail.bind(this);
+    }
+
+    handleSendEmail = data => {
+        const { dispatch } = this.props;
+
+        dispatch(sendEmail(data));
+    }
+
     render() {
         return (
             <div>
                 <Header />
                 <Content />
-                <Contact />
+                <Contact email={this.props.email} handleSendEmail={this.handleSendEmail} />
             </div>
         );
     }
 }
 
-export default LandingPage;
+function mapStateToProps(state) {
+    const { email } = state;
+  
+    return {
+        email
+    }
+}
+
+export default connect(mapStateToProps) (LandingPage);

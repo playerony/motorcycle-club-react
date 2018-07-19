@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import background from '../../static/img/bg.jpg';
 
 const Background = styled.div`
     width: 100%;
     height: 100vh;
     background: red;
-    background: url(${background});
+    background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-665023.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -46,8 +45,13 @@ const Background = styled.div`
                 & .contact-form--field--label {
                     padding-left: 5px;
                     font-size: 14px;
+
+                    & span {
+                        color: #FF4040;
+                    }
                 }
 
+                & .contact-form--field--input-error,
                 & .contact-form--field--input {
                     height: 30px;
                     width: calc(100% - 20px);
@@ -57,13 +61,18 @@ const Background = styled.div`
                     border: 0;
                     border-bottom: 2px solid #fff;
                     background-color: rgba(0, 0, 0, 0);
+                    transition: 0.4s all ease;
                 }
                 
                 & .contact-form--field--input:focus {
                     border-bottom: 2px solid #22a6b3;
-                    transition: 0.4s all ease;
                 }
 
+                & .contact-form--field--input-error:focus {
+                    border-bottom: 2px solid #FF4040;
+                }
+
+                & .contact-form--field--textarea-error,
                 & .contact-form--field--textarea {
                     max-width: 100%;
                     resize: vertical;
@@ -86,6 +95,10 @@ const Background = styled.div`
                 & .contact-form--field--textarea:focus {
                     border-bottom: 2px solid #22a6b3;
                     transition: 0.4s all ease;
+                }
+
+                & .contact-form--field--textarea-error:focus {
+                    border-bottom: 2px solid #FF4040;
                 }
 
                 & .contact-form--field--submit-button {
@@ -114,27 +127,115 @@ const Background = styled.div`
 `;
 
 class Content extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: {
+                firstname: '',
+                lastname: '',
+                email: '',
+                message: ''
+            },
+            errors: {}
+        }
+
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        const errors = this.validate(this.state.data);
+
+        this.setState({
+            errors
+        })
+
+        if(Object.keys(errors).length === 0) {
+            this.props.handleSendEmail(this.state.data);
+        }
+    }
+
+    validate = data => {
+        const errors = {};
+        var Regex = /^[a-zA-Z]+$/;
+
+        if(!data.firstname.trim())
+            errors.firstname = "Pole nie może być puste.";
+        if(!Regex.test(data.firstname.trim()))
+            errors.firstname = "Pole zawiera znaki specjalne.";
+
+        if(!data.lastname.trim())
+            errors.lastname = "Pole nie może być puste.";
+        if(!Regex.test(data.lastname.trim()))
+            errors.lastname = "Pole zawiera znaki specjalne.";
+
+        if(!data.email.trim())
+            errors.email = "Pole nie może być puste.";
+        if(!data.message.trim())
+            errors.message = "Pole nie może być puste.";
+
+        return errors;
+    }
+
+    onChange = e => {
+        this.setState({
+            ...this.state,
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
     render() {
+        const { data, errors } = this.state;
+
         return (
-            <Background>
+            <Background id="contact">
                 <div className="mask">
-                    <form className="contact-form">
+                    <form className="contact-form" onSubmit={this.onSubmit}>
                         <h1><span>Skontaktuj</span> się z nami</h1>
                         <div className="contact-form--field">
-                            <label className="contact-form--field--label">Imię</label>
-                            <input type="text" className="contact-form--field--input"/>
+                            <label className="contact-form--field--label">Imię<span>{!!errors.firstname ? ` (${errors.firstname})` : ""}</span></label>
+                            <input 
+                                type="text" 
+                                name="firstname"
+                                className={!!errors.firstname ? "contact-form--field--input-error" : "contact-form--field--input"}
+                                value={data.firstname}
+                                onChange={this.onChange}
+                            />
                         </div>
                         <div className="contact-form--field">
-                            <label className="contact-form--field--label">Nazwisko</label>
-                            <input type="text" className="contact-form--field--input"/>
+                            <label className="contact-form--field--label">Nazwisko<span>{!!errors.lastname ? ` (${errors.lastname})` : ""}</span></label>
+                            <input 
+                                type="text" 
+                                name="lastname"
+                                className={!!errors.lastname ? "contact-form--field--input-error" : "contact-form--field--input"}
+                                value={data.lastname}
+                                onChange={this.onChange}
+                            />
                         </div>
                         <div className="contact-form--field">
-                            <label className="contact-form--field--label">E-mail</label>
-                            <input type="email" className="contact-form--field--input"/>
+                            <label className="contact-form--field--label">E-mail<span>{!!errors.email ? ` (${errors.email})` : ""}</span></label>
+                            <input 
+                                type="email" 
+                                name="email"
+                                className={!!errors.email ? "contact-form--field--input-error" : "contact-form--field--input"}
+                                value={data.email}
+                                onChange={this.onChange}
+                            />
                         </div>
                         <div className="contact-form--field">
-                            <label className="contact-form--field--label">Wiadomość</label>
-                            <textarea className="contact-form--field--textarea"/>
+                            <label className="contact-form--field--label">Wiadomość<span>{!!errors.message ? ` (${errors.message})` : ""}</span></label>
+                            <textarea 
+                                name="message"
+                                className={!!errors.message ? "contact-form--field--textarea-error" : "contact-form--field--textarea"}
+                                value={data.message}
+                                onChange={this.onChange}
+                            />
                         </div>
                         <div className="contact-form--field">
                             <button className="contact-form--field--submit-button"><a>Wyślij</a></button>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import background from '../../static/img/bg.jpg';
 import logo from '../../static/img/logo.png';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import HeaderNavbar from '../navbar/HeaderNavbar';
@@ -9,7 +8,7 @@ const Background = styled.div`
     width: 100%;
     height: 100vh;
     background: red;
-    background: url(${background});
+    background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-261871.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -21,7 +20,7 @@ const Background = styled.div`
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color: rgba(64, 164, 196, .4);
+        background-color: rgba(64, 164, 196, .2);
         display: flex;
 
         & > .text {
