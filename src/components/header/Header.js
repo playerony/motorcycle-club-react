@@ -60,7 +60,7 @@ const Background = styled.div`
                 color: #fff;
                 outline: none;
                 margin: 100px auto;
-                transition: all 0.2s ease-in-out 0.2s;
+                transition: all 0.2s ease-in-out;
                 vertical-align: middle;
                 line-height: 50px;
 

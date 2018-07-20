@@ -44,6 +44,8 @@ const Background = styled.div`
 
                     & span {
                         color: #FF4040;
+                        font-weight: 700;
+                        font-size: 10px;
                     }
                 }
 
@@ -60,12 +62,13 @@ const Background = styled.div`
                     transition: 0.4s all ease;
                 }
                 
-                & .contact-form--field--input:focus {
-                    border-bottom: 2px solid #22a6b3;
+                & .contact-form--field--input-error {
+                    border-bottom: 2px solid #FF4040;
                 }
 
+                & .contact-form--field--input:focus,
                 & .contact-form--field--input-error:focus {
-                    border-bottom: 2px solid #FF4040;
+                    border-bottom: 2px solid #515151;
                 }
 
                 & .contact-form--field--textarea-error,
@@ -81,6 +84,7 @@ const Background = styled.div`
                     border: 0;
                     border-bottom: 2px solid #fff;
                     background-color: rgba(0, 0, 0, 0);
+                    transition: 0.4s all ease-in-out;
 
                     @media screen and (max-width: 550px) {
                         max-height: 50px;
@@ -88,13 +92,13 @@ const Background = styled.div`
                     }
                 }
 
-                & .contact-form--field--textarea:focus {
-                    border-bottom: 2px solid #22a6b3;
-                    transition: 0.4s all ease;
+                & .contact-form--field--textarea-error {
+                    border-bottom: 2px solid #FF4040;
                 }
 
+                & .contact-form--field--textarea:focus,
                 & .contact-form--field--textarea-error:focus {
-                    border-bottom: 2px solid #FF4040;
+                    border-bottom: 2px solid #515151;
                 }
 
                 & .contact-form--field--submit-button {
@@ -106,7 +110,7 @@ const Background = styled.div`
                     color: #fff;
                     outline: none;
                     margin: 30px auto;
-                    transition: all 0.2s ease-in-out 0.2s;
+                    transition: all 0.2s ease-in-out;
                     cursor: pointer;
                 }
 
@@ -154,22 +158,22 @@ class Content extends Component {
 
     validate = data => {
         const errors = {};
-        let Regex = /^[a-zA-Z]+$/;
+        let Regex = /^[a-zA-Ząłżźćńśęó]+$/;
 
         if(!data.firstname.trim())
-            errors.firstname = "Pole nie może być puste.";
-        if(!Regex.test(data.firstname.trim()))
+            errors.firstname = "TO POLE JEST WYMAGANE";
+        else if(!Regex.test(data.firstname.trim()))
             errors.firstname = "Pole zawiera znaki specjalne.";
 
         if(!data.lastname.trim())
-            errors.lastname = "Pole nie może być puste.";
-        if(!Regex.test(data.lastname.trim()))
+            errors.lastname = "TO POLE JEST WYMAGANE";
+        else if(!Regex.test(data.lastname.trim()))
             errors.lastname = "Pole zawiera znaki specjalne.";
 
         if(!data.email.trim())
-            errors.email = "Pole nie może być puste.";
+            errors.email = "TO POLE JEST WYMAGANE";
         if(!data.message.trim())
-            errors.message = "Pole nie może być puste.";
+            errors.message = "TO POLE JEST WYMAGANE";
 
         return errors;
     }
@@ -197,6 +201,7 @@ class Content extends Component {
                             <input 
                                 type="text" 
                                 name="firstname"
+                                autocomplete="off"
                                 className={!!errors.firstname ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.firstname}
                                 onChange={this.onChange}
@@ -207,6 +212,7 @@ class Content extends Component {
                             <input 
                                 type="text" 
                                 name="lastname"
+                                autocomplete="off"
                                 className={!!errors.lastname ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.lastname}
                                 onChange={this.onChange}
@@ -217,6 +223,7 @@ class Content extends Component {
                             <input 
                                 type="email" 
                                 name="email"
+                                autocomplete="off"
                                 className={!!errors.email ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.email}
                                 onChange={this.onChange}

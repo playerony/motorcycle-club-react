@@ -67,6 +67,8 @@ const StyledContent = styled.div`
                         background-position: center;
                         overflow: hidden;
                         outline: none;
+                        box-shadow: inset 0px 250px 0px rgba(146, 93, 217, .4),
+                                0px 3px 6px rgba(0, 0, 0, .3);
 
                         @media screen and (min-width: 1000px) {
                             float: left;
