@@ -67,7 +67,15 @@ const StyledContent = styled.div`
                         background-position: center;
                         overflow: hidden;
                         outline: none;
-                        float: left;
+
+                        @media screen and (min-width: 1000px) {
+                            float: left;
+                        }
+
+                        @media screen and (max-width: 1000px) {
+                            width: 100%;
+                            height: 50%;
+                        }
                     }
 
                     & .boxes--box--text {
@@ -82,6 +90,10 @@ const StyledContent = styled.div`
                             text-align: center;
                             padding: 20px 0 50px 0;
                         }
+
+                        @media screen and (max-width: 1000px) {
+                            width: 90%;
+                        }
                     }
 
                     h3 {
@@ -94,7 +106,7 @@ const StyledContent = styled.div`
                         padding: 10px 10px 10px 10px;
                         
                         @media screen and (max-width: 550px) {
-                            font-size: 10px;
+                            font-size: 12px;
                         }
                     }
                 }
@@ -224,10 +236,10 @@ class Content extends Component {
                         {
                             id: 1,
                             content: `Rok 2013 był rokiem wielkich zmian. Nasze szeregi opuścił 
-                                    ostatni z założycieli i wieloletni prezes Klubu Tomasz TRZEBIŃSKI. 
-                                    Jego decyzja była zaskoczeniem dla wielu z nas, ale takie są koleje losu.
-                                    Dalszy ciąg mamy nadzieję pięknej historii Wojskowego Klubu Motocyklowego 
-                                    będziemy pisali już bez założycieli dla których nasze drzwi są i będą otwarte.`
+                                      ostatni z założycieli i wieloletni prezes Klubu Tomasz TRZEBIŃSKI. 
+                                      Jego decyzja była zaskoczeniem dla wielu z nas, ale takie są koleje losu.
+                                      Dalszy ciąg mamy nadzieję pięknej historii Wojskowego Klubu Motocyklowego 
+                                      będziemy pisali już bez założycieli dla których nasze drzwi są i będą otwarte.`
                         }
                     ]
                 }

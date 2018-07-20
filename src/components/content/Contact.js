@@ -154,7 +154,7 @@ class Content extends Component {
 
     validate = data => {
         const errors = {};
-        const Regex = /^[a-zA-Z]+$/;
+        let Regex = /^[a-zA-Z]+$/;
 
         if(!data.firstname.trim())
             errors.firstname = "Pole nie może być puste.";
