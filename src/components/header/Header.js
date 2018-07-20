@@ -66,6 +66,7 @@ const Background = styled.div`
 
                 &:hover {
                     background-color: rgba(255, 255, 255, .15);
+                    width: 310px;
                 }
 
                 @media screen and (max-width: 550px) {

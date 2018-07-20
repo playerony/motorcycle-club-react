@@ -6,12 +6,6 @@ import { connect } from 'react-redux';
 import { sendEmail } from '../../actions/email/sendEmail';
 
 class LandingPage extends Component {
-    constructor() {
-        super();
-
-        this.handleSendEmail = this.handleSendEmail.bind(this);
-    }
-
     handleSendEmail = data => {
         const { dispatch } = this.props;
 

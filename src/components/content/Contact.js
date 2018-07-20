@@ -4,11 +4,7 @@ import styled from 'styled-components';
 const Background = styled.div`
     width: 100%;
     height: 100vh;
-    background: red;
-    background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-665023.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    background: #40a4c4;
     overflow: hidden;
 
     & > .mask {
@@ -116,6 +112,7 @@ const Background = styled.div`
 
                 & .contact-form--field--submit-button:hover {
                     background-color: rgba(255, 255, 255, .15);
+                    padding: 10px 75px 10px 75px;
                 }
             }
 
@@ -139,9 +136,6 @@ class Content extends Component {
             },
             errors: {}
         }
-
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
     }
 
     onSubmit = e => {
@@ -160,7 +154,7 @@ class Content extends Component {
 
     validate = data => {
         const errors = {};
-        var Regex = /^[a-zA-Z]+$/;
+        const Regex = /^[a-zA-Z]+$/;
 
         if(!data.firstname.trim())
             errors.firstname = "Pole nie może być puste.";

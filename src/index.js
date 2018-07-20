@@ -17,7 +17,7 @@ injectGlobal`
     }
     body {
         font-family: 'Montserrat', sans-serif;
-        background-color: #40a4c4;
+        background-color: #ffffff;
         color: #454545;
     }
 `;
