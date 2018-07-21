@@ -85,6 +85,7 @@ const Background = styled.div`
                 background-size: cover;
                 background-position: center;
                 cursor: pointer;
+                
                 @media screen and (max-width: 800px) {
                     margin: 10% auto;
                 }

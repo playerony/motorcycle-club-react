@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ContactModal from '../modals/ContactModal';
 
 const Background = styled.div`
     width: 100%;
@@ -138,8 +139,33 @@ class Content extends Component {
                 email: '',
                 message: ''
             },
-            errors: {}
+            errors: {},
+            showContactModal: false
         }
+    }
+
+    showContactModal = () => {
+        this.setState({
+            showContactModal: true
+        });
+    }
+
+    closeContactModal = () => {
+        this.setState({
+            showContactModal: false
+        });
+    }
+
+    clearInputValues = () => {
+        this.setState({
+            ...this.state,
+            data: {
+                firstname: '',
+                lastname: '',
+                email: '',
+                message: ''
+            }
+        });
     }
 
     onSubmit = e => {
@@ -163,17 +189,20 @@ class Content extends Component {
         if(!data.firstname.trim())
             errors.firstname = "TO POLE JEST WYMAGANE";
         else if(!Regex.test(data.firstname.trim()))
-            errors.firstname = "Pole zawiera znaki specjalne.";
+            errors.firstname = "Pole zawiera znaki specjalne";
 
         if(!data.lastname.trim())
             errors.lastname = "TO POLE JEST WYMAGANE";
         else if(!Regex.test(data.lastname.trim()))
-            errors.lastname = "Pole zawiera znaki specjalne.";
+            errors.lastname = "Pole zawiera znaki specjalne";
 
         if(!data.email.trim())
             errors.email = "TO POLE JEST WYMAGANE";
+            
         if(!data.message.trim())
             errors.message = "TO POLE JEST WYMAGANE";
+        else if(data.message.trim().length < 5)
+            errors.message = "Wymagane conajmniej 5 znaków";
 
         return errors;
     }
@@ -201,7 +230,7 @@ class Content extends Component {
                             <input 
                                 type="text" 
                                 name="firstname"
-                                autocomplete="off"
+                                autoComplete="off"
                                 className={!!errors.firstname ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.firstname}
                                 onChange={this.onChange}
@@ -212,7 +241,7 @@ class Content extends Component {
                             <input 
                                 type="text" 
                                 name="lastname"
-                                autocomplete="off"
+                                autoComplete="off"
                                 className={!!errors.lastname ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.lastname}
                                 onChange={this.onChange}
@@ -223,7 +252,7 @@ class Content extends Component {
                             <input 
                                 type="email" 
                                 name="email"
-                                autocomplete="off"
+                                autoComplete="off"
                                 className={!!errors.email ? "contact-form--field--input-error" : "contact-form--field--input"}
                                 value={data.email}
                                 onChange={this.onChange}
@@ -239,8 +268,11 @@ class Content extends Component {
                             />
                         </div>
                         <div className="contact-form--field">
-                            <button className="contact-form--field--submit-button"><a>Wyślij</a></button>
+                            <button onClick={this.showContactModal} className="contact-form--field--submit-button"><a>Wyślij</a></button>
                         </div>
+                        {this.state.showContactModal && (this.props.email.payload.length > 0 || this.props.email.error.length > 0) &&
+                            <ContactModal email={this.props.email} clearInputValues={this.clearInputValues} closeModal={this.closeContactModal} />
+                        }
                     </form>
                 </div>
             </Background>

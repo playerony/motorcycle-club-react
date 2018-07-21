@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import img1 from '../../static/img/img1.jpg';
+import img1 from '../../static/img/content1.png';
+import img2 from '../../static/img/content2.png';
+import img3 from '../../static/img/content3.png';
+import img4 from '../../static/img/content4.png';
 
 const StyledContent = styled.div`
     .container {
@@ -63,20 +66,18 @@ const StyledContent = styled.div`
                     & .boxes--box--image {
                         width: 40%
                         height: 100%;
-                        background-size: cover;
+                        margin: 0 auto;
+                        background-size: contain;
                         background-position: center;
                         overflow: hidden;
                         outline: none;
-                        box-shadow: inset 0px 250px 0px rgba(146, 93, 217, .4),
-                                0px 3px 6px rgba(0, 0, 0, .3);
-
-                        @media screen and (min-width: 1000px) {
-                            float: left;
-                        }
+                        box-shadow: inset 0px 400px 0px rgba(146, 93, 217, .4),
+                                          0px 3px 6px rgba(0, 0, 0, .3);
+                        float: left;
 
                         @media screen and (max-width: 1000px) {
-                            width: 100%;
-                            height: 50%;
+                            width: 0px;
+                            height: 0px;
                         }
                     }
 
@@ -112,10 +113,6 @@ const StyledContent = styled.div`
                         }
                     }
                 }
-
-                @media screen and (max-width: 800px) {
-                    flex-direction: column;
-                }
             } 
         }
 
@@ -125,7 +122,7 @@ const StyledContent = styled.div`
             padding: 15px;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
             position: relative;
-            top: 75px;
+            bottom: -75px;
             z-index: 2;
             transition: all 0.2s ease-in-out 0.2s;
 
@@ -155,69 +152,26 @@ class Content extends Component {
                             content: `Historia powstania klubu, to historia ludzi, którzy zarazili 
                                     nas swoją pasją, stylem życia i miłością do motocykli. Nie sposób
                                     nie wymienić takich nazwisk jak Bartek KOSAR, Mirek BANIA czy Rafał GÓRSKI.`
-                        },
-                        {
-                            id: 2,
-                            content: `Szczególne słowa uznania należą się największemu poskromcy, 
-                                    przede wszystkim  własnego umysłu Grześkowi WAWRZYŃSKIEMU.`
-                        },
-                        {
-                            id: 3,
-                            content: `!!!  Serdeczne dzięki  !!!`
                         }
                     ]
                 },
                 {
                     id: 2,
                     title: `Pomysł`,
-                    image: `${img1}`,
+                    image: `${img2}`,
                     contents: [
                         {
                             id: 1,
                             content: `Sam pomysł stworzenia klubu zrodził się w ich głowach dopiero 
                                     wiosną 2008 roku podczas wypadu na Słowację. Tam właśnie padły 
                                     pierwsze pomysły, w tym nasza obecna nazwa - WOJSKOWY KLUB MOTOCYKLOWY.`
-                        },
-                        {
-                            id: 2,
-                            content: `Owe głowy to:`
-                        }
-                    ],
-                    names: [
-                        {
-                            id: 1,
-                            content: "Radek Bartosik"
-                        },
-                        {
-                            id: 2,
-                            content: "Jasiu Cholewka"
-                        },
-                        {
-                            id: 3,
-                            content: "Sebastian Grant"
-                        },
-                        {
-                            id: 4,
-                            content: "Adam Lasota"
-                        },
-                        {
-                            id: 5,
-                            content: "Zbychu Mucha"
-                        },
-                        {
-                            id: 6,
-                            content: "Robert Szczerbka"
-                        },
-                        {
-                            id: 7,
-                            content: "Tomasz Trzebiński"
                         }
                     ]
                 },
                 {
                     id: 3,
                     title: `Rozwój`,
-                    image: `${img1}`,
+                    image: `${img3}`,
                     contents: [
                         {
                             id: 1,
@@ -233,7 +187,7 @@ class Content extends Component {
                 {
                     id: 4,
                     title: `Rozpad`,
-                    image: `${img1}`,
+                    image: `${img4}`,
                     contents: [
                         {
                             id: 1,

@@ -24,10 +24,10 @@ class LandingPage extends Component {
 }
 
 function mapStateToProps(state) {
-    const { email } = state;
+    const { sendEmail } = state;
   
     return {
-        email
+        email: sendEmail
     }
 }
 
