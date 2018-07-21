@@ -184,7 +184,7 @@ class Content extends Component {
 
     validate = data => {
         const errors = {};
-        let Regex = /^[a-zA-Ząłżźćńśęó]+$/;
+        let Regex = /^[a-zA-ZąłżźćńśęóĄŁŹŻĆŃŚĘÓ]+$/;
 
         if(!data.firstname.trim())
             errors.firstname = "TO POLE JEST WYMAGANE";
