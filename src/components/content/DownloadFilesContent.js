@@ -20,10 +20,17 @@ const StyledContent = styled.div`
             padding: 15px;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
             height: 40px;
-            width: 50%;
+            width: 400px;
             margin: 0 auto;
             position: relative;
             bottom: 20px;
+            font-size: 24px;
+
+            @media screen and (max-width: 800px) {
+                width: 90%;
+                font-size: 16px;
+                height: 30px;
+            }
         }
 
         & > .container--files {
@@ -74,6 +81,10 @@ const StyledContent = styled.div`
                 flex-direction: column;
             }
         }
+
+        @media screen and (max-width: 800px) {
+            width: 300px;
+        }
     }
     
     @media screen and (max-width: 800px) {
@@ -87,7 +98,7 @@ class DownloadFilesContent extends Component {
             <StyledContent>
                 <div className="container">
                     <div className="container--description">
-                        <h1>Pliki do pobrania</h1>
+                        <h2>Pliki do pobrania</h2>
                     </div>
                     <div className="container--files">
                         <a href={attachment1} download="Załącznik1.docx" className="container--file">
