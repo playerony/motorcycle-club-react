@@ -18,8 +18,8 @@ class LandingPage extends Component {
             <div>
                 <Header />
                 <Content />
-                <DownloadFilesContent />
                 <ContactForm email={this.props.email} handleSendEmail={this.handleSendEmail} />
+                <DownloadFilesContent />
             </div>
         );
     }
