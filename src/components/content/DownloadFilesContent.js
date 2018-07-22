@@ -23,7 +23,7 @@ const StyledContent = styled.div`
             width: 50%;
             margin: 0 auto;
             position: relative;
-            bottom: 50px;
+            bottom: 20px;
         }
 
         & > .container--files {
