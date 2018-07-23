@@ -30,12 +30,17 @@ const StyledContent = styled.div`
                 padding: 15px;
             }
 
-            & h1 {
-                padding-top: 100px;
-                font-size: 40px;
+            & > h1 {
+                padding-top: 50px;
+                font-size: 35px;
                 text-align: center;
                 text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
                 color: #2b2b2b;
+                font-weight: 400;
+
+                & > span {
+                    font-weight: 800;
+                }
                 
                 @media screen and (max-width: 550px) {
                     font-size: 20px;
@@ -56,17 +61,16 @@ const StyledContent = styled.div`
 
             & .boxes {
                 width: 100%;
-                margin-top: 150px;
 
                 & .boxes--box {
                     width: 100%;
-                    height: 500px;
-                    margin-top: 100px;
+                    height: 400px;
+                    margin-top: 90px;
                     
                     & .boxes--box--image {
-                        width: 40%
+                        width: 52%
                         height: 100%;
-                        margin: 0 auto;
+                        margin: auto;
                         background-size: contain;
                         background-position: center;
                         overflow: hidden;
@@ -82,36 +86,44 @@ const StyledContent = styled.div`
                     }
 
                     & .boxes--box--text {
-                        width: 50%;
+                        width: 36%;
                         height: 50%;
                         float: left;
-                        padding: 5%;
+                        padding: 6%;
+                        text-align: center;
+                        position: relative;
+                        top: 50%;
 
                         & .boxes--box--text-title {
-                            font-weight: 700;
-                            font-size: 50px;
-                            text-align: center;
-                            padding: 20px 0 50px 0;
+                            font-weight: 800;
+                            font-size: 36px;
+                            text-align: left;
+                            padding-left: 9px;
+                            color: #2b2b2b;
+                        }
+
+                        & > h3 {
+                            padding-top: 20px;
+                            font-size: 20px;
+                            font-weight: 500;
+                            text-align: left;
+                            color: rgba(0, 0, 0, .5);
+                            padding: 10px 10px 10px 10px;
+                            
+                            @media screen and (max-width: 550px) {
+                                font-size: 12px;
+                            }
                         }
 
                         @media screen and (max-width: 1000px) {
-                            width: 90%;
+                            width: 86%;
                         }
                     }
+                }
 
-                    h3 {
-                        padding-top: 20px;
-                        font-size: 20px;
-                        font-weight: 400;
-                        text-align: left;
-                        text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
-                        color: #000;
-                        padding: 10px 10px 10px 10px;
-                        
-                        @media screen and (max-width: 550px) {
-                            font-size: 12px;
-                        }
-                    }
+                @media screen and (max-width: 1000px) {
+                    width: 100%;
+                    margin-top: -90px;
                 }
             } 
         }
@@ -125,10 +137,17 @@ const StyledContent = styled.div`
             bottom: -75px;
             z-index: 2;
             transition: all 0.2s ease-in-out 0.2s;
+            font-weight: 700;
+            font-size: 22px;
+            text-align: center;
 
             & h1 {
                 color: #FFFFFF !important;
                 padding-top: 0px !important;
+            }
+
+            @media screen and (max-width: 1000px) {
+                font-size: 14px;
             }
         }
     }
@@ -144,7 +163,7 @@ class Content extends Component {
             boxes: [
                 {
                     id: 1,
-                    title: `Historia powstania`,
+                    title: `Powstanie`,
                     image: `${img1}`,
                     contents: [
                         {
@@ -164,7 +183,7 @@ class Content extends Component {
                             id: 1,
                             content: `Sam pomysł stworzenia klubu zrodził się w ich głowach dopiero 
                                     wiosną 2008 roku podczas wypadu na Słowację. Tam właśnie padły 
-                                    pierwsze pomysły, w tym nasza obecna nazwa - WOJSKOWY KLUB MOTOCYKLOWY.`
+                                    pierwsze pomysły, w tym nasza obecna nazwa.`
                         }
                     ]
                 },
@@ -176,11 +195,11 @@ class Content extends Component {
                         {
                             id: 1,
                             content: `Kolejne lata przyniosły ze sobą dalszy rozwój, podjęcie współpracy i 
-                                    zawarcie przyjaźni z innymi klubami , w tym z Blue Knights, Klubem Motocyklowym 
-                                    „Sąsiedzi” Pyskowice oraz ciekawymi ludźmi. Udzielamy się w licznych imprezach 
-                                    charytatywnych, w 2012 roku przyłączyliśmy się do 20-go Finału WOŚP w Gliwicach. 
-                                    Od czasu założenia WKM przydarzyło się wiele bliższych i dalszych, pełnych przygód, 
-                                    radości, a czasami także trudnych chwil, podróży na dwóch kółkach.`
+                                    zawarcie przyjaźni z innymi klubami, w tym m.in. z Blue Knights. 
+                                    Udzielamy się w licznych imprezach charytatywnych, w 2012 roku 
+                                    przyłączyliśmy się do 20-go Finału WOŚP w Gliwicach. 
+                                    Od czasu założenia WKM przydarzyło się wiele bliższych i dalszych, 
+                                    pełnych przygód, radości, a czasami także trudnych chwil, podróży na dwóch kółkach.`
                         }
                     ]
                 },
@@ -208,13 +227,13 @@ class Content extends Component {
             <StyledContent>
                 <div className="container">
                     <div id="content">
-                        <h1>{this.state.title}</h1>
+                        <h1><span>Dlaczego</span> WKM?</h1>
                         <div className="boxes">
                             <div className="boxes--box">
                                 <div className="boxes--box--image">
                                     <img src={this.state.boxes[0].image}/>
                                 </div>
-                                <div className="boxes--box--text">
+                                <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[0].title}
                                     </div>
@@ -222,8 +241,8 @@ class Content extends Component {
                                 </div>
                             </div>
                             <div className="boxes--box">
-                                <div className="boxes--box--text">
-                                <div className="boxes--box--text-title">
+                                <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
+                                    <div className="boxes--box--text-title">
                                         {this.state.boxes[1].title}
                                     </div>
                                     <h3>{this.state.boxes[1].contents[0].content}</h3>
@@ -236,7 +255,7 @@ class Content extends Component {
                                 <div className="boxes--box--image">
                                     <img src={this.state.boxes[2].image}/>
                                 </div>
-                                <div className="boxes--box--text">
+                                <div className="boxes--box--text" style={{transform: `translateY(-75%)`}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[2].title}
                                     </div>
@@ -244,7 +263,7 @@ class Content extends Component {
                                 </div>
                             </div>
                             <div className="boxes--box">
-                                <div className="boxes--box--text">
+                                <div className="boxes--box--text" style={{transform: `translateY(-70%)`}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[3].title}
                                     </div>

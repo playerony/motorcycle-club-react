@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import logo from '../../static/img/logo_white.png';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Navbar = styled.nav`
-    width: 100%;
+    width: 99%;
     position: sticky;
     top: 0;
     left: 0;
@@ -16,16 +14,6 @@ const Navbar = styled.nav`
         list-style: none;
         justify-context: space-between;
         color: #fff;
-
-        & .logo img {
-            height: 120px;
-            padding: 15px;
-
-            @media screen and (max-width: 550px) {
-                height: 60px;
-                padding-top: 15px 15px;
-            }
-        }
 
         & .nav-right {
             position: absolute;
@@ -97,11 +85,6 @@ class HeaderNavbar extends Component {
         return (
             <Navbar>
                 <ul>
-                    <li className="logo">
-                        <Link to="/">
-                            <img src={logo} alt="logo" />
-                        </Link>
-                    </li>
                     <div className="nav-right">
                         <li className="text">
                             <AnchorLink href="#content" className="text-underline">

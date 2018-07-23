@@ -37,7 +37,7 @@ const Background = styled.div`
             & > .contact-form--field {
                 display: block;
                 margin: 10px auto;
-                width: 100%;
+                width: calc(100% - 20px);
 
                 & .contact-form--field--label {
                     padding-left: 5px;
