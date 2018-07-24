@@ -165,12 +165,14 @@ class Content extends Component {
 
     showContactModal = () => {
         this.setState({
+            ...this.state,
             showContactModal: true
         });
     }
 
     closeContactModal = () => {
         this.setState({
+            ...this.state,
             showContactModal: false
         });
     }
@@ -178,6 +180,7 @@ class Content extends Component {
     clearInputValues = () => {
         this.setState({
             ...this.state,
+            showContactModal: false,
             data: {
                 firstname: '',
                 lastname: '',
@@ -185,6 +188,8 @@ class Content extends Component {
                 message: ''
             }
         });
+
+        this.props.handleClearInfo();
     }
 
     onSubmit = e => {
@@ -292,8 +297,7 @@ class Content extends Component {
                         {this.state.showContactModal && !this.props.email.isFetching && (this.props.email.payload.length > 0 || this.props.email.error.length > 0) &&
                             <ContactModal email={this.props.email} clearInputValues={this.clearInputValues} closeModal={this.closeContactModal} />
                         }
-                        <Loading isLoading={this.state.showContactModal && this.props.email.isFetching && (this.props.email.payload.length === 0 || this.props.email.error.length === 0)}>
-                        </Loading>
+                        <Loading isLoading={this.state.showContactModal && this.props.email.isFetching && (this.props.email.payload.length === 0 || this.props.email.error.length === 0)} />
                     </form>
                 </div>
             </Background>

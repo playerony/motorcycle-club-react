@@ -79,7 +79,12 @@ const ModalContainer = styled.div`
 `;
 
 class ContactModal extends Component {
-    closeModal = () => this.props.closeModal();
+    closeModal = () => {
+        this.props.closeModal();
+
+        if(!this.props.email.isError)
+            this.props.clearInputValues();
+    }
 
     render() {
         const { isError } = this.props.email;

@@ -1,7 +1,8 @@
 import {
     REQUEST_EMAIL,
     RESPONSE_EMAIL,
-    FAILURE_EMAIL
+    FAILURE_EMAIL,
+    CLEAR_EMAIL_INFO
 } from '../../constants/email/email.constants';
   
 export function sendEmail(
@@ -23,7 +24,7 @@ export function sendEmail(
         
             case RESPONSE_EMAIL:
                 return {
-                ...state,
+                    ...state,
                     payload: action.json,
                     isFetching: false,
                     isError: false
@@ -31,11 +32,21 @@ export function sendEmail(
         
             case FAILURE_EMAIL:
                 return {
-                ...state,
+                    ...state,
                     error: action.error,
                     isFetching: false,
                     isError: true,
                 }
+
+            case CLEAR_EMAIL_INFO: {
+                return {
+                    ...state, 
+                    payload: [],
+                    error: [],
+                    isFetching: false,
+                    isError: false
+                }
+            }
         
             default:
                 return state;

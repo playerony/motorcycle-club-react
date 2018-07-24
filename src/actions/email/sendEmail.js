@@ -1,7 +1,8 @@
 import {
     REQUEST_EMAIL,
     RESPONSE_EMAIL,
-    FAILURE_EMAIL
+    FAILURE_EMAIL,
+    CLEAR_EMAIL_INFO
 } from '../../constants/email/email.constants';
 import * as emailService from '../../services/email.service';
   
@@ -23,6 +24,12 @@ function sendEmailFailure(error) {
     return {
         type: FAILURE_EMAIL,
         error
+    }
+}
+
+export function clearInfo() {
+    return {
+        type: CLEAR_EMAIL_INFO
     }
 }
   
