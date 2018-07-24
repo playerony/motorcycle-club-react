@@ -32,7 +32,7 @@ const Background = styled.div`
             & > h1 {
                 font-size: 50px;
                 text-align: center;
-                margin-top: 18%;
+                margin-top: 15%;
                 font-weight: 800;
                 text-shadow: 4px 4px rgba(0, 0, 255, .5);
 
