@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ContactModal from '../modals/ContactModal';
+import Loading from 'react-loading-animation';
 
 const Background = styled.div`
     width: 100%;
@@ -113,11 +114,11 @@ const Background = styled.div`
                     margin: 30px auto;
                     transition: all 0.2s ease-in-out;
                     cursor: pointer;
+                    border-radius: 100px;
                 }
 
                 & .contact-form--field--submit-button:hover {
                     background-color: rgba(255, 255, 255, .15);
-                    padding: 10px 75px 10px 75px;
                 }
             }
 
@@ -288,9 +289,11 @@ class Content extends Component {
                         <div className="contact-form--field">
                             <button onClick={this.showContactModal} className="contact-form--field--submit-button"><a>Wyślij</a></button>
                         </div>
-                        {this.state.showContactModal && (this.props.email.payload.length > 0 || this.props.email.error.length > 0) &&
+                        {this.state.showContactModal && !this.props.email.isFetching && (this.props.email.payload.length > 0 || this.props.email.error.length > 0) &&
                             <ContactModal email={this.props.email} clearInputValues={this.clearInputValues} closeModal={this.closeContactModal} />
                         }
+                        <Loading isLoading={this.state.showContactModal && this.props.email.isFetching && (this.props.email.payload.length === 0 || this.props.email.error.length === 0)}>
+                        </Loading>
                     </form>
                 </div>
             </Background>

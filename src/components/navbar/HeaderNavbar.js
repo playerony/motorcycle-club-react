@@ -31,9 +31,6 @@ const Navbar = styled.nav`
                     font-weight: 400;
                     text-align: center;
 
-                    @media screen and (max-width: 550px) {
-                        font-size: 12px;
-                    }
                 }
 
                 & .text-underline,

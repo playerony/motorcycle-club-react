@@ -32,9 +32,8 @@ const StyledContent = styled.div`
 
             & > h1 {
                 padding-top: 50px;
-                font-size: 35px;
+                font-size: 24px;
                 text-align: center;
-                text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
                 color: #2b2b2b;
                 font-weight: 400;
 
@@ -43,7 +42,7 @@ const StyledContent = styled.div`
                 }
                 
                 @media screen and (max-width: 550px) {
-                    font-size: 20px;
+                    font-size: 16px;
                 }
             }
 
@@ -51,7 +50,6 @@ const StyledContent = styled.div`
                 padding-top: 20px;
                 font-size: 30px;
                 text-align: center;
-                text-shadow: 0px 3px 6px rgba(0, 0, 0, .2);
                 color: #2b2b2b;
                 
                 @media screen and (max-width: 550px) {
@@ -104,7 +102,7 @@ const StyledContent = styled.div`
 
                         & > h3 {
                             padding-top: 20px;
-                            font-size: 20px;
+                            font-size: 17px;
                             font-weight: 500;
                             text-align: left;
                             color: rgba(0, 0, 0, .5);
@@ -163,7 +161,7 @@ class Content extends Component {
             boxes: [
                 {
                     id: 1,
-                    title: `Powstanie`,
+                    title: `Historia`,
                     image: `${img1}`,
                     contents: [
                         {
@@ -255,7 +253,7 @@ class Content extends Component {
                                 <div className="boxes--box--image">
                                     <img src={this.state.boxes[2].image}/>
                                 </div>
-                                <div className="boxes--box--text" style={{transform: `translateY(-75%)`}}>
+                                <div className="boxes--box--text" style={{transform: `translateY(-65%)`}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[2].title}
                                     </div>
@@ -263,7 +261,7 @@ class Content extends Component {
                                 </div>
                             </div>
                             <div className="boxes--box">
-                                <div className="boxes--box--text" style={{transform: `translateY(-70%)`}}>
+                                <div className="boxes--box--text" style={{transform: `translateY(-60%)`}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[3].title}
                                     </div>

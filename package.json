@@ -9,6 +9,7 @@
     "react": "^16.4.1",
     "react-anchor-link-smooth-scroll": "^1.0.10",
     "react-dom": "^16.4.1",
+    "react-loading-animation": "^1.4.0",
     "react-parallax": "^1.8.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
