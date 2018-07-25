@@ -5,7 +5,7 @@ import './HeaderNavbar.scss';
 class HeaderNavbar extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="nav-wrapper">
                 <ul>
                     <div className="nav-right">
                         <li className="nav-right--text">
@@ -13,7 +13,7 @@ class HeaderNavbar extends Component {
                                 O nas
                             </AnchorLink>
                         </li>
-                        <li className="text">
+                        <li className="nav-right--text">
                             <AnchorLink href="#contact" className="nav-right--text-underline">
                                 Kontakt
                             </AnchorLink>

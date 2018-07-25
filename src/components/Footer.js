@@ -4,7 +4,7 @@ import './Footer.scss';
 class Footer extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="footer-wrapper">
                 <div className="content-wrapper">
                     <div className="content-icons">
                         <a href="#" className="generic-anchor"><i className="fa fa-facebook"></i></a>

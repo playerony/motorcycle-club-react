@@ -1,4 +1,4 @@
-.container {
+.content-wrapper {
     max-width: 1000px;
     margin: auto;
     padding: 10px;
@@ -10,7 +10,7 @@
     padding: 15px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
     position: relative;
-    bottom: -75px;
+    bottom: -50px;
     z-index: 2;
     transition: all 0.2s ease-in-out 0.2s;
     font-weight: 700;

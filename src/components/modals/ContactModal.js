@@ -14,7 +14,7 @@ class ContactModal extends Component {
         const { isError } = this.props.email;
 
         return (
-            <div className="container" onClick={this.closeModal}>
+            <div className="modal-wrapper" onClick={this.closeModal}>
                 <div className="modal">
                     <div className={!!isError ? "modal--error" : "modal--checkmark"}>{!!isError ? "x" : ""}</div>
                     <h2>{!!isError ? "Ups.." : "Sukces!"}</h2>
@@ -30,7 +30,7 @@ ContactModal.propTypes = {
         isError: PropTypes.bool.isRequired,
         isFetching: PropTypes.bool,
         error: PropTypes.array,
-        error: PropTypes.array,
+        payload: PropTypes.array,
     })).isRequired,
     closeModal: PropTypes.func.isRequired
 }

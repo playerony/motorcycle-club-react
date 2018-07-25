@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import attachment1 from '../../static/docx/Załącznik1.docx';
 import attachment2 from '../../static/docx/Załącznik2.docx';
-import docxIcon from '../../static/img/docx.png'
+import docxIcon from '../../static/img/docx.png';
+import './DownloadFilesContent.scss';
 
 class DownloadFilesContent extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="download-wrapper">
                 <div className="content">
                     <div className="content--description">
                         <h2>Pliki do pobrania</h2>

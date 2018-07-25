@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import HeaderNavbar from '../navbar/HeaderNavbar';
+import './Header.scss';
 
 class Header extends Component {
     state = {
@@ -10,15 +11,15 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="header-wrapper">
                 <HeaderNavbar />
-                <div className="mask">
-                    <div className="content">
+                <div className="header-mask">
+                    <div className="header-content">
                         <h1>{this.state.top}</h1>
                         <p>
                             {this.state.bottom}
                         </p>
-                        <AnchorLink className="content--see-more-button" href="#content" offset="20">
+                        <AnchorLink className="header-content--see-more-button" href="#content" offset="20">
                             Dowiedz się więcej
                         </AnchorLink>
                     </div>

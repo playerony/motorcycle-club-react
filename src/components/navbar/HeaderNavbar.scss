@@ -1,4 +1,4 @@
-.container {
+.nav-wrapper {
     width: 99%;
     position: sticky;
     top: 0;
@@ -13,28 +13,28 @@
     }
 }
 
-& > .nav-right {
+.nav-right {
     position: absolute;
     top: 0;
     right: 50px;
 
-    & > .nav-right--text {
-        margin: 62px 20px;
-        float: left;
+    @media screen and (max-width: 550px) {
+        right: 15px;
+    }
+}
 
-        & > a {
-            position: relative;
-            color: #fff;
-            text-decoration: none;
-        }
+.nav-right--text {
+    margin: 62px 20px;
+    float: left;
 
-        @media screen and (max-width: 550px) {
-            margin-top: 35px;
-        }
+    & > a {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
     }
 
     @media screen and (max-width: 550px) {
-        right: 15px;
+        margin-top: 35px;
     }
 }
 

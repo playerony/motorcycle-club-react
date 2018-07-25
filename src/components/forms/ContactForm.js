@@ -102,7 +102,7 @@ class Content extends Component {
         const { data, errors } = this.state;
 
         return (
-            <div className="container" id="contact">
+            <div className="contact-wrapper" id="contact">
                 <div className="mask">
                     <form className="contact-form" onSubmit={this.onSubmit}>
                         <h1><span>Skontaktuj</span> się z nami</h1>
@@ -167,7 +167,7 @@ Content.propTypes = {
         isError: PropTypes.bool.isRequired,
         isFetching: PropTypes.bool.isRequired,
         error: PropTypes.array.isRequired,
-        error: PropTypes.array.isRequired,
+        payload: PropTypes.array.isRequired,
     })).isRequired,
     handleSendEmail: PropTypes.func.isRequired,
     handleClearInfo: PropTypes.func.isRequired
