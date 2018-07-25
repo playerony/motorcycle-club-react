@@ -1,0 +1,73 @@
+.container {
+    width: 99%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    & > ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        color: #fff;
+    }
+}
+
+& > .nav-right {
+    position: absolute;
+    top: 0;
+    right: 50px;
+
+    & > .nav-right--text {
+        margin: 62px 20px;
+        float: left;
+
+        & > a {
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 550px) {
+            margin-top: 35px;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        right: 15px;
+    }
+}
+
+.nav-right--text-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.nav-right--text-underline,
+.nav-right--text-underline:hover,
+.nav-right--text-underline:focus,
+.nav-right--text-underline:active {
+    text-decoration: none;
+}
+
+.nav-right--text-underline::after {
+    content: "";
+    position: absolute;
+}
+
+.nav-right--text .nav-right--text-underline::after {
+    top: 90%;
+    height: 2px;
+    width: 0%;
+    left: 5%;
+    background-color: rgba(255, 255, 255, .6);
+    transition: .5s ease all .3s;
+}
+
+.nav-right--text:hover .nav-right--text-underline::after {
+    width: 90%;
+    transition: .3s ease all;
+}

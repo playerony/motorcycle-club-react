@@ -5,7 +5,7 @@ import ContactForm from '../forms/ContactForm';
 import DownloadFilesContent from '../content/DownloadFilesContent';
 import Footer from '../Footer';
 import { connect } from 'react-redux';
-import { sendEmail, clearInfo } from '../../actions/email/sendEmail';
+import { sendEmail, clearEmailInfo } from '../../actions/email/sendEmail';
 
 class LandingPage extends Component {
     handleSendEmail = data => {
@@ -17,7 +17,7 @@ class LandingPage extends Component {
     handleClearInfo = data => {
         const { dispatch } = this.props;
 
-        dispatch(clearInfo());
+        dispatch(clearEmailInfo());
     }
 
     render() {

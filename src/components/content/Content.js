@@ -1,155 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import img1 from '../../static/img/content1.png';
 import img2 from '../../static/img/content2.png';
 import img3 from '../../static/img/content3.png';
 import img4 from '../../static/img/content4.png';
-
-const StyledContent = styled.div`
-    .container {
-        max-width: 1000px;
-        margin: auto;
-        padding: 10px;
-
-        & > #content {
-            margin-top: 20px;
-
-            $ .content--text {
-                margin: 30px auto;
-                color: red;
-                background-color: #FFFFFF;
-                padding: 15px;
-                box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
-            }
-
-            & > .description {
-                margin: 30px;
-                text-align: justify;
-                font-size: 18px;
-                color: #FFF;
-                padding: 15px;
-            }
-
-            & > h1 {
-                padding-top: 50px;
-                font-size: 24px;
-                text-align: center;
-                color: #2b2b2b;
-                font-weight: 400;
-
-                & > span {
-                    font-weight: 800;
-                }
-                
-                @media screen and (max-width: 550px) {
-                    font-size: 16px;
-                }
-            }
-
-            & h2 {
-                padding-top: 20px;
-                font-size: 30px;
-                text-align: center;
-                color: #2b2b2b;
-                
-                @media screen and (max-width: 550px) {
-                    font-size: 15px;
-                }
-            }
-
-            & .boxes {
-                width: 100%;
-
-                & .boxes--box {
-                    width: 100%;
-                    height: 400px;
-                    margin-top: 90px;
-                    
-                    & .boxes--box--image {
-                        width: 52%
-                        height: 100%;
-                        margin: auto;
-                        background-size: contain;
-                        background-position: center;
-                        overflow: hidden;
-                        outline: none;
-                        box-shadow: inset 0px 400px 0px rgba(146, 93, 217, .4),
-                                          0px 3px 6px rgba(0, 0, 0, .3);
-                        float: left;
-
-                        @media screen and (max-width: 1000px) {
-                            width: 0px;
-                            height: 0px;
-                        }
-                    }
-
-                    & .boxes--box--text {
-                        width: 36%;
-                        height: 50%;
-                        float: left;
-                        padding: 6%;
-                        text-align: center;
-                        position: relative;
-                        top: 50%;
-
-                        & .boxes--box--text-title {
-                            font-weight: 800;
-                            font-size: 36px;
-                            text-align: left;
-                            padding-left: 9px;
-                            color: #2b2b2b;
-                        }
-
-                        & > h3 {
-                            padding-top: 20px;
-                            font-size: 17px;
-                            font-weight: 500;
-                            text-align: left;
-                            color: rgba(0, 0, 0, .5);
-                            padding: 10px 10px 10px 10px;
-                            
-                            @media screen and (max-width: 550px) {
-                                font-size: 12px;
-                            }
-                        }
-
-                        @media screen and (max-width: 1000px) {
-                            width: 86%;
-                        }
-                    }
-                }
-
-                @media screen and (max-width: 1000px) {
-                    width: 100%;
-                    margin-top: -90px;
-                }
-            } 
-        }
-
-        & .content--text {
-            margin: 30px auto;
-            background: #2b2b2b;
-            padding: 15px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, .3);
-            position: relative;
-            bottom: -75px;
-            z-index: 2;
-            transition: all 0.2s ease-in-out 0.2s;
-            font-weight: 700;
-            font-size: 22px;
-            text-align: center;
-
-            & h1 {
-                color: #FFFFFF !important;
-                padding-top: 0px !important;
-            }
-
-            @media screen and (max-width: 1000px) {
-                font-size: 14px;
-            }
-        }
-    }
-`;
+import './Content.scss';
 
 class Content extends Component {
     constructor(props) {
@@ -222,62 +76,60 @@ class Content extends Component {
 
     render() {
         return (
-            <StyledContent>
-                <div className="container">
-                    <div id="content">
-                        <h1><span>Dlaczego</span> WKM?</h1>
-                        <div className="boxes">
-                            <div className="boxes--box">
-                                <div className="boxes--box--image">
-                                    <img src={this.state.boxes[0].image}/>
-                                </div>
-                                <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
-                                    <div className="boxes--box--text-title">
-                                        {this.state.boxes[0].title}
-                                    </div>
-                                    <h3>{this.state.boxes[0].contents[0].content}</h3>
-                                </div>
+            <div className="container">
+                <div id="content">
+                    <h1><span>Dlaczego</span> WKM?</h1>
+                    <div className="boxes">
+                        <div className="boxes--box">
+                            <div className="boxes--box--image">
+                                <img src={this.state.boxes[0].image} alt={this.state.boxes[0].image}/>
                             </div>
-                            <div className="boxes--box">
-                                <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
-                                    <div className="boxes--box--text-title">
-                                        {this.state.boxes[1].title}
-                                    </div>
-                                    <h3>{this.state.boxes[1].contents[0].content}</h3>
+                            <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
+                                <div className="boxes--box--text-title">
+                                    {this.state.boxes[0].title}
                                 </div>
-                                <div className="boxes--box--image">
-                                    <img src={this.state.boxes[1].image}/>
-                                </div>
-                            </div>
-                            <div className="boxes--box">
-                                <div className="boxes--box--image">
-                                    <img src={this.state.boxes[2].image}/>
-                                </div>
-                                <div className="boxes--box--text" style={{transform: `translateY(-65%)`}}>
-                                    <div className="boxes--box--text-title">
-                                        {this.state.boxes[2].title}
-                                    </div>
-                                    <h3>{this.state.boxes[2].contents[0].content}</h3>
-                                </div>
-                            </div>
-                            <div className="boxes--box">
-                                <div className="boxes--box--text" style={{transform: `translateY(-60%)`}}>
-                                    <div className="boxes--box--text-title">
-                                        {this.state.boxes[3].title}
-                                    </div>
-                                    <h3>{this.state.boxes[3].contents[0].content}</h3>
-                                </div>
-                                <div className="boxes--box--image">
-                                    <img src={this.state.boxes[3].image}/>
-                                </div>
+                                <h3>{this.state.boxes[0].contents[0].content}</h3>
                             </div>
                         </div>
-                        <div className="content--text">
-                            <h1>{this.state.farewell}</h1>
+                        <div className="boxes--box">
+                            <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
+                                <div className="boxes--box--text-title">
+                                    {this.state.boxes[1].title}
+                                </div>
+                                <h3>{this.state.boxes[1].contents[0].content}</h3>
+                            </div>
+                            <div className="boxes--box--image">
+                                <img src={this.state.boxes[1].image} alt={this.state.boxes[1].image}/>
+                            </div>
+                        </div>
+                        <div className="boxes--box">
+                            <div className="boxes--box--image">
+                                <img src={this.state.boxes[2].image} alt={this.state.boxes[2].image}/>
+                            </div>
+                            <div className="boxes--box--text" style={{transform: `translateY(-65%)`}}>
+                                <div className="boxes--box--text-title">
+                                    {this.state.boxes[2].title}
+                                </div>
+                                <h3>{this.state.boxes[2].contents[0].content}</h3>
+                            </div>
+                        </div>
+                        <div className="boxes--box">
+                            <div className="boxes--box--text" style={{transform: `translateY(-60%)`}}>
+                                <div className="boxes--box--text-title">
+                                    {this.state.boxes[3].title}
+                                </div>
+                                <h3>{this.state.boxes[3].contents[0].content}</h3>
+                            </div>
+                            <div className="boxes--box--image">
+                                <img src={this.state.boxes[3].image} alt={this.state.boxes[3].image}/>
+                            </div>
                         </div>
                     </div>
+                    <div className="content--text">
+                        <h1>{this.state.farewell}</h1>
+                    </div>
                 </div>
-            </StyledContent>
+            </div>
         );
     }
 }

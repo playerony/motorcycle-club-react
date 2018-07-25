@@ -21,13 +21,18 @@ function sendEmailResponse(json) {
 }
   
 function sendEmailFailure(error) {
+    var message = error;
+
+    if(!(error instanceof Array))
+        message = [message];
+
     return {
         type: FAILURE_EMAIL,
-        error
+        error: message
     }
 }
 
-export function clearInfo() {
+export function clearEmailInfo() {
     return {
         type: CLEAR_EMAIL_INFO
     }
