@@ -14,11 +14,11 @@ class DownloadFilesContent extends Component {
                     </div>
                     <div className="content--files">
                         <a href={attachment1} download="Załącznik1.docx" className="content--file">
-                            <div className="content--file--image" style={{background: `url(${docxIcon})`}}></div>
+                            <div className="content--file--image" style={{backgroundImage: `url(${docxIcon})`}}></div>
                             <div className="content--file--text">Załącznik1.docx</div>
                         </a>
                         <a href={attachment2} download="Załącznik2.docx" className="content--file">
-                        <div className="content--file--image" style={{background: `url(${docxIcon})`}}></div>
+                        <div className="content--file--image" style={{backgroundImage: `url(${docxIcon})`}}></div>
                             <div className="content--file--text">Załącznik2.docx</div>
                         </a>
                     </div>

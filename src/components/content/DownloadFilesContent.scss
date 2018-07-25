@@ -61,10 +61,6 @@
         box-shadow: inset 0px 300px 0px rgba(81, 81, 81, .05),
                     0px 3px 6px rgba(0, 0, 0, .3);
     }
-
-    @media screen and (max-width: 800px) {
-        width: 300px;
-    }
 }
 
 .content--file--image {
