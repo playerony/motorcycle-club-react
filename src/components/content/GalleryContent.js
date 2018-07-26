@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import * as dropboxService from '../../services/dropbox.service';
 import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 class GalleryContent extends Component {
     state = {
         files: [],
         galleryPhotos: []
+    }
+
+    componentDidMount = () => {
+        this.onGalleryLoad();
     }
 
     onStateClear = () => {
@@ -15,52 +19,70 @@ class GalleryContent extends Component {
         })
     }
 
+    importAll(r) {
+        return r.keys().map(r)
+    }
+
     onGalleryLoad = () => {
         this.onStateClear();
 
-        dropboxService.readdir('/Włochy')
-            .then(
-                json => {
-                    this.setState({
-                        files: json.response
-                    }, () => {
-                        if(json.response.length > 0) {
-                            json.response.forEach((element) => {
-                                dropboxService.readFile('/Włochy/' + element)
-                                    .then(
-                                        json => {
-                                            let data = [json.response.data];
+        // dropboxService.readdir('/Włochy')
+        //     .then(
+        //         json => {
+        //             this.setState({
+        //                 files: json.response
+        //             }, () => {
+        //                 if(json.response.length > 0) {
+        //                     json.response.forEach((element) => {
+        //                         dropboxService.readFile('/Włochy/' + element)
+        //                             .then(
+        //                                 json => {
+        //                                     let data = [json.response.data];
 
-                                            this.setState({
-                                                ...this.state,
-                                                galleryPhotos: [...this.state.galleryPhotos, {imageSet: data}]
-                                            }, () => {
-                                                console.log(this.state);
-                                            })
-                                        }
-                                    )
-                                    .catch(error => {
-                                        console.log(error.message);
-                                    })
-                            })
-                        }
-                    })
-                }
-            )
-            .catch(error => {
-                console.log(error);
+        //                                     console.log(data.toString('base64'))
+
+        //                                     this.setState({
+        //                                         ...this.state,
+        //                                         galleryPhotos: [...this.state.galleryPhotos, data]
+        //                                     }, () => {
+        //                                         console.log(this.state);
+        //                                     })
+        //                                 }
+        //                             )
+        //                             .catch(error => {
+        //                                 console.log(error.message);
+        //                             })
+        //                     })
+        //                 }
+        //             })
+        //         }
+        //     )
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+
+        let keys = this.importAll(require.context('../../static/img/', false, /\.(png|jpe?g|svg)$/))
+        let galleryPhotos = [];
+
+        keys.forEach((element, index) => {
+            galleryPhotos.push({
+                original: element,
+                thumbnail: element
             })
+        })
+
+        this.setState({
+            ...this.state,
+            galleryPhotos
+        })
     }
 
     render() {
         return (
             <div>
-                <div onClick={this.onGalleryLoad}>
-                    XD
-                </div>
                 {this.state.galleryPhotos.length > 0 &&
                     <div>
-                        <img src={this.state.galleryPhotos[0]} alt="img1" />
+                        <ImageGallery items={this.state.galleryPhotos} disableThumbnailScroll={true} />
                     </div>
                 }
             </div>

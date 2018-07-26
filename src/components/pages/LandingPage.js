@@ -25,8 +25,8 @@ class LandingPage extends Component {
         return (
             <div>
                 <Header />
-                <GalleryContent />
                 <Content />
+                <GalleryContent />
                 <ContactForm email={this.props.email} handleSendEmail={this.handleSendEmail} handleClearInfo={this.handleClearInfo} />
                 <DownloadFilesContent />
                 <Footer />
