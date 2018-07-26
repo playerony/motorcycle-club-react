@@ -4,6 +4,7 @@ import Content from '../content/Content';
 import ContactForm from '../forms/ContactForm';
 import DownloadFilesContent from '../content/DownloadFilesContent';
 import Footer from '../Footer';
+import GalleryContent from '../content/GalleryContent';
 import { connect } from 'react-redux';
 import { sendEmail, clearEmailInfo } from '../../actions/email/sendEmail';
 
@@ -24,6 +25,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <Header />
+                <GalleryContent />
                 <Content />
                 <ContactForm email={this.props.email} handleSendEmail={this.handleSendEmail} handleClearInfo={this.handleClearInfo} />
                 <DownloadFilesContent />

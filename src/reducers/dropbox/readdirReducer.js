@@ -1,11 +1,10 @@
 import {
-    REQUEST_EMAIL,
-    RESPONSE_EMAIL,
-    FAILURE_EMAIL,
-    CLEAR_EMAIL_INFO
-} from '../../constants/email/email.constants';
+    FAILURE_READDIR,
+    REQUEST_READDIR,
+    RESPONSE_READDIR
+} from '../../constants/dropbox/dropbox.contants';
   
-export function sendEmail(
+export function readdir(
     state = {
         payload: [],
         error: [],
@@ -15,14 +14,14 @@ export function sendEmail(
         action
     ) {
         switch(action.type) {
-            case REQUEST_EMAIL:
+            case REQUEST_READDIR:
                 return {
                     ...state,
                     isFetching: true,
                     isError: false
                 }
         
-            case RESPONSE_EMAIL:
+            case RESPONSE_READDIR:
                 return {
                     ...state,
                     payload: action.json,
@@ -30,21 +29,12 @@ export function sendEmail(
                     isError: false
                 }
         
-            case FAILURE_EMAIL:
+            case FAILURE_READDIR:
                 return {
                     ...state,
                     error: action.error,
                     isFetching: false,
                     isError: true,
-                }
-
-            case CLEAR_EMAIL_INFO:
-                return {
-                    ...state, 
-                    payload: [],
-                    error: [],
-                    isFetching: false,
-                    isError: false
                 }
         
             default:

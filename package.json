@@ -41,6 +41,7 @@
     "react-anchor-link-smooth-scroll": "^1.0.10",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-image-gallery": "^0.8.9",
     "react-loading-animation": "^1.4.0",
     "react-parallax": "^1.8.0",
     "react-redux": "^5.0.7",
