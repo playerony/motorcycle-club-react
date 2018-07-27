@@ -14,6 +14,11 @@ class HeaderNavbar extends Component {
                             </AnchorLink>
                         </li>
                         <li className="nav-right--text">
+                            <AnchorLink href="#gallery" className="nav-right--text-underline">
+                                Galeria
+                            </AnchorLink>
+                        </li>
+                        <li className="nav-right--text">
                             <AnchorLink href="#contact" className="nav-right--text-underline">
                                 Kontakt
                             </AnchorLink>

@@ -1,0 +1,7 @@
+.gallery-wrapper {
+    padding: 0px 100px 0px 100px;
+
+    @media screen and (max-width: 800px) {
+        padding: 0px;
+    }
+}

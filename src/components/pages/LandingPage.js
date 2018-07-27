@@ -15,7 +15,7 @@ class LandingPage extends Component {
         dispatch(sendEmail(data));
     }
 
-    handleClearInfo = data => {
+    handleClearInfo = () => {
         const { dispatch } = this.props;
 
         dispatch(clearEmailInfo());

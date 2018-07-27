@@ -1,7 +1,7 @@
 .header-wrapper {
     width: 100%;
     height: 100vh;
-    background: red;
+    background: #40a4c4;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -24,18 +24,18 @@
     margin: auto;
     cursor: default;
 
-    & > h1 {
+    h1 {
         font-size: 60px;
         text-align: center;
-        margin-top: 15%;
+        margin-top: 13%;
 
         @media screen and (max-width: 550px) {
-            font-size: 25px;
-            margin-top: 40%;
+            font-size: 30px;
+            margin-top: 30%;
         }
     }
 
-    & > p {
+    p {
         font-size: 27px;
         text-align: center;
         font-weight: 400;
@@ -47,11 +47,7 @@
     }
 
     @media screen and (min-width: 1000px), screen and (min-height: 1000px) {
-        margin: 40% auto;
-    }
-
-    @media screen and (min-width: 1000px), screen and (max-height: 1000px) {
-        margin: -10% auto;
+        margin: 30% auto;
     }
 
     @media screen and (min-width: 1000px) {
@@ -68,7 +64,7 @@
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
     outline: none;
-    margin: 20% auto;
+    margin: 15% auto;
     transition: all 0.2s ease-in-out;
     line-height: 50px;
     width: 300px;
@@ -80,5 +76,7 @@
 
     @media screen and (max-width: 550px) {
         margin-top: 10%;
+        width: 200px;
+        font-size: 12px;
     }
 }

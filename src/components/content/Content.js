@@ -3,7 +3,9 @@ import img1 from '../../static/img/content1.png';
 import img2 from '../../static/img/content2.png';
 import img3 from '../../static/img/content3.png';
 import img4 from '../../static/img/content4.png';
+import { slideInLeft } from 'react-animations';
 import './Content.scss';
+import { keyframes } from 'styled-components';
 
 class Content extends Component {
     state = {
@@ -71,13 +73,15 @@ class Content extends Component {
     };
 
     render() {
+        const slideInLeftAnimation = keyframes`${slideInLeft}`;
+
         return (
             <div className="content-wrapper">
                 <div id="content">
                     <h1><span>Dlaczego</span> WKM?</h1>
                     <div className="boxes">
-                        <div className="boxes--box">
-                            <div className="boxes--box--image">
+                        <div className="boxes--box" id="content1">
+                            <div className="boxes--box--image" style={{animation: `2s ${slideInLeftAnimation}`}}>
                                 <img src={this.state.boxes[0].image} alt={this.state.boxes[0].image}/>
                             </div>
                             <div className="boxes--box--text" style={{transform: `translateY(-50%)`}}>
@@ -121,7 +125,7 @@ class Content extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="content--text">
+                    <div className="content-description">
                         <h1>{this.state.farewell}</h1>
                     </div>
                 </div>
