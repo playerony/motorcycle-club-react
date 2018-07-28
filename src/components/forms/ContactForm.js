@@ -163,7 +163,7 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-    email: PropTypes.arrayOf(PropTypes.shape({
+    email: PropTypes.objectOf(PropTypes.shape({
         isError: PropTypes.bool.isRequired,
         isFetching: PropTypes.bool.isRequired,
         error: PropTypes.array.isRequired,

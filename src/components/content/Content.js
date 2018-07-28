@@ -71,37 +71,18 @@ class Content extends Component {
                 ]
             }
         ],
-        content1Animation: false,
-        content2Animation: false,
-        content3Animation: false,
-        content4Animation: false
+        contentAnimation: [false, false, false, false]
     };
 
-    handleContent1Animation = () => {
-        this.setState({
-            ...this.state,
-            content1Animation: true
-        })
-    }
+    handleContentAnimationChange = (e, id) => {
+        let contentAnimation = this.state.contentAnimation;
+        contentAnimation[id] = true;
 
-    handleContent2Animation = () => {
-        this.setState({
-            ...this.state,
-            content2Animation: true
-        })
-    }
+        console.log(contentAnimation, id)
 
-    handleContent3Animation = () => {
         this.setState({
             ...this.state,
-            content3Animation: true
-        })
-    }
-
-    handleContent4Animation = () => {
-        this.setState({
-            ...this.state,
-            content4Animation: true
+            contentAnimation
         })
     }
 
@@ -113,12 +94,12 @@ class Content extends Component {
                 <div id="content">
                     <h1><span>Dlaczego</span> WKM?</h1>
                     <div className="boxes">
-                        <Waypoint onEnter={this.handleContent1Animation}>
+                        <Waypoint onEnter={(e) => this.handleContentAnimationChange(e, 0)}>
                             <div className="boxes--box" id="content1">
-                                <div className="boxes--box--image" style={{animation: this.state.content1Animation ? `3s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--image" style={{animation: this.state.contentAnimation[0] ? `3s ${slideInLeftAnimation}` : ``}}>
                                     <img src={this.state.boxes[0].image} alt={this.state.boxes[0].image}/>
                                 </div>
-                                <div className="boxes--box--text" style={{animation: this.state.content1Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--text" style={{animation: this.state.contentAnimation[0] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[0].title}
                                     </div>
@@ -126,25 +107,25 @@ class Content extends Component {
                                 </div>
                             </div>
                         </Waypoint>
-                        <Waypoint onEnter={this.handleContent2Animation}>
+                        <Waypoint onEnter={(e) => this.handleContentAnimationChange(e, 1)}>
                             <div className="boxes--box" id="content2">
-                                <div className="boxes--box--text" style={{animation: this.state.content2Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--text" style={{animation: this.state.contentAnimation[1] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[1].title}
                                     </div>
                                     <h3>{this.state.boxes[1].contents[0].content}</h3>
                                 </div>
-                                <div className="boxes--box--image" style={{animation: this.state.content2Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--image" style={{animation: this.state.contentAnimation[1] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <img src={this.state.boxes[1].image} alt={this.state.boxes[1].image}/>
                                 </div>
                             </div>
                         </Waypoint>
-                        <Waypoint onEnter={this.handleContent3Animation}>
+                        <Waypoint onEnter={(e) => this.handleContentAnimationChange(e, 2)}>
                             <div className="boxes--box">
-                                <div className="boxes--box--image" style={{animation: this.state.content3Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--image" style={{animation: this.state.contentAnimation[2] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <img src={this.state.boxes[2].image} alt={this.state.boxes[2].image}/>
                                 </div>
-                                <div className="boxes--box--text" style={{animation: this.state.content3Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--text" style={{animation: this.state.contentAnimation[2] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[2].title}
                                     </div>
@@ -152,15 +133,15 @@ class Content extends Component {
                                 </div>
                             </div>
                         </Waypoint>
-                        <Waypoint onEnter={this.handleContent4Animation}>
+                        <Waypoint onEnter={(e) => this.handleContentAnimationChange(e, 3)}>
                             <div className="boxes--box">
-                                <div className="boxes--box--text" style={{animation: this.state.content4Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--text" style={{animation: this.state.contentAnimation[3] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <div className="boxes--box--text-title">
                                         {this.state.boxes[3].title}
                                     </div>
                                     <h3>{this.state.boxes[3].contents[0].content}</h3>
                                 </div>
-                                <div className="boxes--box--image" style={{animation: this.state.content4Animation ? `2s ${slideInLeftAnimation}` : ``}}>
+                                <div className="boxes--box--image" style={{animation: this.state.contentAnimation[3] ? `2s ${slideInLeftAnimation}` : ``}}>
                                     <img src={this.state.boxes[3].image} alt={this.state.boxes[3].image}/>
                                 </div>
                             </div>

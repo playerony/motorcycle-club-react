@@ -21,7 +21,6 @@ class Header extends Component {
                             offsetYMax={-100}
                             offsetYMin={100}
                             slowerScrollRate
-                            tag="figure"
                         >
                             <h1>{this.state.top}</h1>
                             <p>
@@ -33,7 +32,6 @@ class Header extends Component {
                             offsetYMax={-150}
                             offsetYMin={150}
                             slowerScrollRate
-                            tag="figure"
                         >
                             <AnchorLink className="header-content--see-more-button" href="#content" offset="20">
                                 Dowiedz się więcej
