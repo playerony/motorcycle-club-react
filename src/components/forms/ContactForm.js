@@ -70,12 +70,12 @@ class Content extends Component {
         if(!data.firstname.trim())
             errors.firstname = "TO POLE JEST WYMAGANE";
         else if(!Regex.test(data.firstname.trim()))
-            errors.firstname = "Pole zawiera znaki specjalne";
+            errors.firstname = "POLE ZAWIERA ZNAKI SPECJALNE";
 
         if(!data.lastname.trim())
             errors.lastname = "TO POLE JEST WYMAGANE";
         else if(!Regex.test(data.lastname.trim()))
-            errors.lastname = "Pole zawiera znaki specjalne";
+            errors.lastname = "POLE ZAWIERA ZNAKI SPECJALNE";
 
         if(!data.email.trim())
             errors.email = "TO POLE JEST WYMAGANE";
@@ -83,7 +83,7 @@ class Content extends Component {
         if(!data.message.trim())
             errors.message = "TO POLE JEST WYMAGANE";
         else if(data.message.trim().length < 5)
-            errors.message = "Wymagane conajmniej 5 znaków";
+            errors.message = "WYMAGANE MIN. 5 ZNAKÓW";
 
         return errors;
     }
@@ -103,7 +103,7 @@ class Content extends Component {
 
         return (
             <div className="contact-wrapper" id="contact">
-                <div className="mask">
+                <div className="contact-content">
                     <form className="contact-form" onSubmit={this.onSubmit}>
                         <h1><span>Skontaktuj</span> się z nami</h1>
                         <div className="contact-form--field">
