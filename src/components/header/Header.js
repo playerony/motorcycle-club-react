@@ -18,8 +18,8 @@ class Header extends Component {
                 <div className="header-mask">
                     <div className="header-content">
                         <Parallax
-                            offsetYMax={-100}
-                            offsetYMin={100}
+                            offsetYMax={150}
+                            offsetYMin={0}
                             slowerScrollRate
                         >
                             <h1>{this.state.top}</h1>
@@ -29,8 +29,8 @@ class Header extends Component {
                         </Parallax>
                         
                         <Parallax
-                            offsetYMax={-150}
-                            offsetYMin={150}
+                            offsetYMax={300}
+                            offsetYMin={0}
                             slowerScrollRate
                         >
                             <AnchorLink className="header-content--see-more-button" href="#content" offset="20">

@@ -78,8 +78,6 @@ class Content extends Component {
         let contentAnimation = this.state.contentAnimation;
         contentAnimation[id] = true;
 
-        console.log(contentAnimation, id)
-
         this.setState({
             ...this.state,
             contentAnimation
